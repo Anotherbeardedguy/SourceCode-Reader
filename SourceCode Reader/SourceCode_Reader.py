@@ -20,6 +20,6 @@ def combine_csharp_files_with_tags(source_folder, output_file):
     print(f"All C# files have been combined into {output_file}")
 
 # Example usage
-source_folder = 'E:\GIT\Tiny-Planet-Arborist\Assets\Scripts'
+source_folder = '\Assets\Scripts'
 output_file = 'combined_files_with_tags.txt'
 combine_csharp_files_with_tags(source_folder, output_file)
