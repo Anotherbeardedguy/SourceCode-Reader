@@ -1,11 +1,10 @@
 import os
+import argparse
 
-def recreate_files_from_text(input_file):
+def recreate_files_from_text(input_file, root_folder):
     file_content = []
     current_path = ""
     reading_file = False
-    # Use the current working directory as the root folder
-    root_folder = os.getcwd()
 
     with open(input_file, 'r') as infile:
         for line in infile:
@@ -37,6 +36,9 @@ def save_file(path, content):
         outfile.writelines(content)
     print(f"File saved: {path}")
 
-# Example usage
-input_file = 'combined_files_with_tags.txt'
-recreate_files_from_text(input_file)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Recreate C# files from a combined text file.")
+    parser.add_argument("input_file", type=str, help="The combined text file to process.")
+    parser.add_argument("root_folder", type=str, help="The root folder to recreate C# files in.")
+    args = parser.parse_args()
+    recreate_files_from_text(args.input_file, args.root_folder)
